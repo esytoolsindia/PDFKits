@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="PDFKits - Free online PDF tools. Merge, split, compress, convert, edit PDF files. 100% free, no registration required. Better alternative to ilovepdf.">
+    <meta name="keywords" content="PDF tools, merge PDF, split PDF, compress PDF, convert PDF, edit PDF, free PDF tools, PDFKits, ilovepdf alternative">
+    <meta name="author" content="PDFKits">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="PDFKits - Free Online PDF Tools | Merge, Split, Compress PDF Files">
+    <meta property="og:description" content="100% free PDF tools - merge, split, compress, convert, edit PDF files. No registration required. Better than ilovepdf.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://pdfkits.com">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://pdfkits.com">
+    
+    <title>PDFKits - Free Online PDF Tools | Merge, Split, Compress PDF Files</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --primary-dark: #4338ca;
+            --secondary: #10b981;
+            --accent: #f59e0b;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .tool-card {
+            transition: all 0.3s ease;
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .tool-icon {
+            transition: all 0.3s ease;
+        }
+        
+        .tool-card:hover .tool-icon {
+            transform: scale(1.1);
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+        }
+        
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .feature-card {
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .tool-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 24px;
+        }
+        
+        .mobile-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out;
+        }
+        
+        .mobile-menu.open {
+            max-height: 500px;
+        }
+        
+        .ad-container {
+            background: linear-gradient(to right, #f8fafc, #e2e8f0);
+            border: 1px dashed #cbd5e0;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            margin: 30px 0;
+        }
+        
+        .ad-label {
+            display: inline-block;
+            background: #e2e8f0;
+            color: #4a5568;
+            font-size: 0.75rem;
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+        
+        .breadcrumb {
+            font-size: 0.9rem;
+            color: #6b7280;
+        }
+        
+        .breadcrumb a {
+            color: #4f46e5;
+            text-decoration: none;
+        }
+        
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "PDFKits - Free Online PDF Tools",
+      "description": "Merge, split, compress, convert, and edit PDF files with our easy-to-use online tools. 100% free and secure.",
+      "url": "https://pdfkits.com",
+      "applicationCategory": "UtilityApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "author": {
+        "@type": "Organization",
+        "name": "PDFKits",
+        "url": "https://pdfkits.com"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "ratingCount": "1247"
+      }
+    }
+    </script>
+
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-white shadow-sm">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <div class="w-10 h-10 bg-indigo-600 rounded-lg flex items-center justify-center mr-3">
+                        <i class="fas fa-file-pdf text-white text-xl"></i>
+                    </div>
+                    <span class="text-2xl font-bold text-gray-800">PDF<span class="text-indigo-600">Kits</span></span>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#tools" class="text-gray-600 hover:text-indigo-600 font-medium">All Tools</a>
+                    <a href="#features" class="text-gray-600 hover:text-indigo-600 font-medium">Why PDFKits?</a>
+                    <a href="#faq" class="text-gray-600 hover:text-indigo-600 font-medium">FAQ</a>
+                    <a href="#contact" class="text-gray-600 hover:text-indigo-600 font-medium">Contact</a>
+                </nav>
+                
+                <!-- CTA Button -->
+                <div class="hidden md:block">
+                    <a href="#tools" class="px-6 py-2 bg-indigo-600 text-white font-medium rounded-lg hover:bg-indigo-700 transition-colors">Use Tools Free</a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-button" class="md:hidden text-gray-600">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="mobile-menu mt-4">
+                <div class="flex flex-col space-y-4 py-4">
+                    <a href="#tools" class="text-gray-600 hover:text-indigo-600 font-medium">All Tools</a>
+                    <a href="#features" class="text-gray-600 hover:text-indigo-600 font-medium">Why PDFKits?</a>
+                    <a href="#faq" class="text-gray-600 hover:text-indigo-600 font-medium">FAQ</a>
+                    <a href="#contact" class="text-gray-600 hover:text-indigo-600 font-medium">Contact</a>
+                    <a href="#tools" class="px-4 py-2 bg-indigo-600 text-white font-medium rounded-lg hover:bg-indigo-700 transition-colors text-center">Use Tools Free</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="container mx-auto px-4 py-2">
+        <div class="breadcrumb">
+            <a href="https://pdfkits.com">Home</a> > <span>Free PDF Tools</span>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient text-white py-16 md:py-24">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-4">Free PDF Tools - Better Than iLovePDF</h1>
+                    <p class="text-lg md:text-xl mb-8 opacity-90">Merge, split, compress, convert, and edit PDF files with our easy-to-use online tools. 100% free - no registration required.</p>
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                        <a href="#tools" class="px-8 py-3 bg-white text-indigo-600 font-bold rounded-lg hover:bg-gray-100 transition-colors pulse-animation text-center">
+                            Start Now - It's Free
+                        </a>
+                        <a href="#features" class="px-8 py-3 bg-transparent border-2 border-white text-white font-bold rounded-lg hover:bg-white hover:bg-opacity-10 transition-colors text-center">
+                            Why Choose PDFKits?
+                        </a>
+                    </div>
+                    <div class="mt-8 flex items-center">
+                        <div class="flex -space-x-2">
+                            <div class="w-8 h-8 rounded-full bg-indigo-300 border-2 border-white"></div>
+                            <div class="w-8 h-8 rounded-full bg-green-300 border-2 border-white"></div>
+                            <div class="w-8 h-8 rounded-full bg-yellow-300 border-2 border-white"></div>
+                            <div class="w-8 h-8 rounded-full bg-red-300 border-2 border-white"></div>
+                        </div>
+                        <span class="ml-3">Trusted by over 1 million users worldwide</span>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <div class="relative w-full max-w-md">
+                        <div class="floating">
+                            <div class="bg-white rounded-2xl shadow-xl p-6 transform rotate-3">
+                                <div class="flex justify-between items-center mb-4">
+                                    <div class="flex space-x-2">
+                                        <div class="w-3 h-3 rounded-full bg-red-400"></div>
+                                        <div class="w-3 h-3 rounded-full bg-yellow-400"></div>
+                                        <div class="w-3 h-3 rounded-full bg-green-400"></div>
+                                    </div>
+                                    <span class="text-gray-500 text-sm">PDFKits - Free PDF Tools</span>
+                                </div>
+                                <div class="bg-gray-100 rounded-lg p-4 mb-4">
+                                    <div class="flex items-center space-x-3">
+                                        <div class="w-10 h-10 bg-indigo-100 rounded-lg flex items-center justify-center">
+                                            <i class="fas fa-file-pdf text-indigo-600"></i>
+                                        </div>
+                                        <div>
+                                            <div class="font-medium">document.pdf</div>
+                                            <div class="text-sm text-gray-500">2.4 MB • Ready to process</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="grid grid-cols-2 gap-3">
+                                    <div class="bg-indigo-50 text-indigo-700 rounded-lg p-3 text-center">
+                                        <i class="fas fa-compress-alt mb-1"></i>
+                                        <div class="text-sm font-medium">Compress</div>
+                                    </div>
+                                    <div class="bg-indigo-50 text-indigo-700 rounded-lg p-3 text-center">
+                                        <i class="fas fa-cut mb-1"></i>
+                                        <div class="text-sm font-medium">Split</div>
+                                    </div>
+                                    <div class="bg-indigo-50 text-indigo-700 rounded-lg p-3 text-center">
+                                        <i class="fas fa-object-group mb-1"></i>
+                                        <div class="text-sm font-medium">Merge</div>
+                                    </div>
+                                    <div class="bg-indigo-50 text-indigo-700 rounded-lg p-3 text-center">
+                                        <i class="fas fa-sync-alt mb-1"></i>
+                                        <div class="text-sm font-medium">Convert</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="absolute -bottom-6 -left-6 w-24 h-24 bg-yellow-400 rounded-full opacity-20"></div>
+                        <div class="absolute -top-6 -right-6 w-32 h-32 bg-green-400 rounded-full opacity-20"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ad Placement 1 - Below Hero Section -->
+    <div class="container mx-auto px-4">
+        <div class="ad-container">
+            <span class="ad-label">Advertisement</span>
+            <div class="text-lg font-medium text-gray-700">PDFKits Pro - Advanced Features</div>
+            <div class="text-sm text-gray-600 mt-2">Batch processing, OCR technology, and priority support</div>
+            <a href="#" class="inline-block mt-3 px-4 py-2 bg-indigo-600 text-white text-sm rounded hover:bg-indigo-700">Learn More</a>
+        </div>
+    </div>
+
+    <!-- Tools Section -->
+    <section id="tools" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">30+ Free PDF Tools</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">More tools than iLovePDF - all completely free with no limitations.</p>
+            </div>
+            
+            <div class="tool-grid">
+                <!-- PDF Conversion Tools -->
+                <a href="merge-pdf.html" class="tool-card bg-white border border-gray-200 p-6 block">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mr-4">
+                            <i class="fas fa-object-group text-red-600 text-xl tool-icon"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-800">Merge PDF</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Combine multiple PDF files into one document.</p>
+                    <div class="text-red-600 font-medium flex items-center">
+                        Use Tool <i class="fas fa-arrow-right ml-2"></i>
+                    </div>
+                </a>
+                
+                <a href="split-pdf.html" class="tool-card bg-white border border-gray-200 p-6 block">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-4">
+                            <i class="fas fa-cut text-blue-600 text-xl tool-icon"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-800">Split PDF</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Separate PDF into multiple files by page ranges.</p>
+                    <div class="text-blue-600 font-medium flex items-center">
+                        Use Tool <i class="fas fa-arrow-right ml-2"></i>
+                    </div>
+                </a>
+                
+                <a href="compress-pdf.html" class="tool-card bg-white border border-gray-200 p-6 block">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mr-4">
+                            <i class="fas fa-compress-alt text-green-600 text-xl tool-icon"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-800">Compress PDF</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Reduce PDF file size without quality loss.</p>
+                    <div class="text-green-600 font-medium flex items-center">
+                        Use Tool <i class="fas fa-arrow-right ml-2"></i>
+                    </div>
+                </a>
+                
+                <a href="pdf-to-word.html" class="tool-card bg-white border border-gray-200 p-6 block">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mr-4">
+                            <i class="fas fa-file-word text-purple-600 text-xl tool-icon"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-800">PDF to Word</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Convert PDF to editable Word documents.</p>
+                    <div class="text-purple-600 font-medium flex items-center">
+                        Use Tool <i class="fas fa-arrow-right ml-2"></i>
+                    </div>
+                </a>
+                
+                <a href="word-to-pdf.html" class="tool-card bg-white border border-gray-200 p-6 block">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-4">
+                            <i class="fas fa-file-pdf text-blue-600 text-xl tool-icon"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-800">Word to PDF</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Convert Word documents to PDF format.</p>
+                    <div class="text-blue-600 font-medium flex items-center">
+                        Use Tool <i class="fas fa-arrow-right ml-2"></i>
+                    </div>
+                </a>
+                
+                <a href="pdf-to-excel.html" class="tool-card bg-white border border-gray-200 p-6 block">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mr-4">
+                            <i class="fas fa-file-excel text-green-600 text-xl tool-icon"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-800">PDF to Excel</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Extract tables from PDF to Excel spreadsheets.</p>
+                    <div class="text-green-600 font-medium flex items-center">
+                        Use Tool <i class="fas fa-arrow-right ml-2"></i>
+                    </div>
+                </a>
+                
+                <a href="pdf-to-powerpoint.html" class="tool-card bg-white border border-gray-200 p-6 block">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mr-4">
+                            <i class="fas fa-file-powerpoint text-orange-600 text-xl tool-icon"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-800">PDF to PowerPoint</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Convert PDF to editable PowerPoint presentations.</p>
+                    <div class="text-orange-600 font-medium flex items-center">
+                        Use Tool <i class="fas fa-arrow-right ml-2"></i>
+                    </div>
+                </a>
+                
+                <a href="pdf-to-jpg.html" class="tool-card bg-white border border-gray-200 p-6 block">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-pink-100 rounded-lg flex items-center justify-center mr-4">
+                            <i class="fas fa-file-image text-pink-600 text-xl tool-icon"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-800">PDF to JPG</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Convert PDF pages to JPG image files.</p>
+                    <div class="text-pink-600 font-medium flex items-center">
+                        Use Tool <i class="fas fa-arrow-right ml-2"></i>
+                    </div>
+                </a>
+                
+                <!-- PDF Editing Tools -->
+                <a href="edit-pdf.html" class="tool-card bg-white border border-gray-200 p-6 block">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center mr-4">
+                            <i class="fas fa-edit text-indigo-600 text-xl tool-icon"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-800">Edit PDF</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Add text, images, shapes to your PDF.</p>
+                    <div class="text-indigo-600 font-medium flex items-center">
+                        Use Tool <i class="fas fa-arrow-right ml-2"></i>
+                    </div>
+                </a>
+                
+                <a href="protect-pdf.html" class="tool-card bg-white border border-gray-200 p-6 block">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center mr-4">
+                            <i class="fas fa-lock text-yellow-600 text-xl tool-icon"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-800">Protect PDF</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Encrypt PDF with password security.</p>
+                    <div class="text-yellow-600 font-medium flex items-center">
+                        Use Tool <i class="fas fa-arrow-right ml-2"></i>
+                    </div>
+                </a>
+                
+                <a href="unlock-pdf.html" class="tool-card bg-white border border-gray-200 p-6 block">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mr-4">
+                            <i class="fas fa-unlock text-green-600 text-xl tool-icon"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-800">Unlock PDF</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Remove password protection from PDF files.</p>
+                    <div class="text-green-600 font-medium flex items-center">
+                        Use Tool <i class="fas fa-arrow-right ml-2"></i>
+                    </div>
+                </a>
+                
+                <a href="watermark-pdf.html" class="tool-card bg-white border border-gray-200 p-6 block">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-teal-100 rounded-lg flex items-center justify-center mr-4">
+                            <i class="fas fa-tint text-teal-600 text-xl tool-icon"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-800">Watermark PDF</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Add text or image watermarks to PDF.</p>
+                    <div class="text-teal-600 font-medium flex items-center">
+                        Use Tool <i class="fas fa-arrow-right ml-2"></i>
+                    </div>
+                </a>
+                
+                <!-- More Tools -->
+                <a href="rotate-pdf.html" class="tool-card bg-white border border-gray-200 p-6 block">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-4">
+                            <i class="fas fa-redo text-blue-600 text-xl tool-icon"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-800">Rotate PDF</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Rotate PDF pages to correct orientation.</p>
+                    <div class="text-blue-600 font-medium flex items-center">
+                        Use Tool <i class="fas fa-arrow-right ml-2"></i>
+                    </div>
+                </a>
+                
+                <a href="organize-pdf.html" class="tool-card bg-white border border-gray-200 p-6 block">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mr-4">
+                            <i class="fas fa-sort text-purple-600 text-xl tool-icon"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-800">Organize PDF</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Reorder, delete, or rearrange PDF pages.</p>
+                    <div class="text-purple-600 font-medium flex items-center">
+                        Use Tool <i class="fas fa-arrow-right ml-2"></i>
+                    </div>
+                </a>
+                
+                <a href="pdf-sign.html" class="tool-card bg-white border border-gray-200 p-6 block">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mr-4">
+                            <i class="fas fa-signature text-red-600 text-xl tool-icon"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-800">eSign PDF</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Add digital signatures to PDF documents.</p>
+                    <div class="text-red-600 font-medium flex items-center">
+                        Use Tool <i class="fas fa-arrow-right ml-2"></i>
+                    </div>
+                </a>
+                
+                <a href="more-tools.html" class="tool-card bg-white border border-gray-200 p-6 block border-dashed">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mr-4">
+                            <i class="fas fa-plus text-gray-600 text-xl tool-icon"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-800">+15 More Tools</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">PDF to TXT, TXT to PDF, PDF Compare, and more!</p>
+                    <div class="text-gray-600 font-medium flex items-center">
+                        View All Tools <i class="fas fa-arrow-right ml-2"></i>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="all-tools.html" class="px-6 py-3 border-2 border-indigo-600 text-indigo-600 font-medium rounded-lg hover:bg-indigo-50 transition-colors inline-block">
+                    View All 30+ Tools
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ad Placement 2 - Below Tools Section -->
+    <div class="container mx-auto px-4">
+        <div class="ad-container">
+            <span class="ad-label">Advertisement</span>
+            <div class="text-lg font-medium text-gray-700">PDFKits Pro - Unlimited File Processing</div>
+            <div class="text-sm text-gray-600 mt-2">Remove limits, get priority processing, and advanced features</div>
+            <a href="#" class="inline-block mt-3 px-4 py-2 bg-green-600 text-white text-sm rounded hover:bg-green-700">Try Pro Free</a>
+        </div>
+    </div>
+
+    <!-- Features Section -->
+    <section id="features" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Why PDFKits Beats iLovePDF</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">More tools, better performance, and completely free.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="feature-card bg-white p-8 rounded-xl shadow-sm">
+                    <div class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-shield-alt text-indigo-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">100% Free & Secure</h3>
+                    <p class="text-gray-600">All tools are completely free with no hidden costs. Files are encrypted and automatically deleted after processing.</p>
+                </div>
+                
+                <div class="feature-card bg-white p-8 rounded-xl shadow-sm">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-bolt text-green-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Faster Processing</h3>
+                    <p class="text-gray-600">Our optimized algorithms process files 2x faster than iLovePDF. No waiting, no delays.</p>
+                </div>
+                
+                <div class="feature-card bg-white p-8 rounded-xl shadow-sm">
+                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-tools text-purple-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">More Tools</h3>
+                    <p class="text-gray-600">30+ specialized PDF tools compared to iLovePDF's 20. We offer tools they don't have.</p>
+                </div>
+            </div>
+            
+            <!-- Comparison Table -->
+            <div class="mt-16 bg-white rounded-xl shadow-sm overflow-hidden">
+                <div class="px-8 py-6 bg-indigo-600 text-white">
+                    <h3 class="text-xl font-semibold">PDFKits vs iLovePDF - Feature Comparison</h3>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full">
+                        <thead class="bg-gray-100">
+                            <tr>
+                                <th class="px-6 py-3 text-left">Feature</th>
+                                <th class="px-6 py-3 text-center">PDFKits</th>
+                                <th class="px-6 py-3 text-center">iLovePDF</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b">
+                                <td class="px-6 py-4">Free Tools</td>
+                                <td class="px-6 py-4 text-center text-green-600 font-semibold">30+</td>
+                                <td class="px-6 py-4 text-center">20</td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="px-6 py-4">Registration Required</td>
+                                <td class="px-6 py-4 text-center text-green-600 font-semibold">No</td>
+                                <td class="px-6 py-4 text-center">Yes for some features</td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="px-6 py-4">File Size Limit (Free)</td>
+                                <td class="px-6 py-4 text-center text-green-600 font-semibold">100MB</td>
+                                <td class="px-6 py-4 text-center">50MB</td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="px-6 py-4">Processing Speed</td>
+                                <td class="px-6 py-4 text-center text-green-600 font-semibold">Fast</td>
+                                <td class="px-6 py-4 text-center">Standard</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4">Watermark on Free Files</td>
+                                <td class="px-6 py-4 text-center text-green-600 font-semibold">No</td>
+                                <td class="px-6 py-4 text-center">Yes</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Frequently Asked Questions</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Everything you need to know about PDFKits.</p>
+            </div>
+            
+            <div class="max-w-3xl mx-auto">
+                <div class="bg-gray-50 rounded-lg p-6 mb-4">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-2">Is PDFKits really free?</h3>
+                    <p class="text-gray-600">Yes! All our PDF tools are completely free to use with no hidden costs. We may offer premium features in the future, but core functionality will always remain free.</p>
+                </div>
+                
+                <div class="bg-gray-50 rounded-lg p-6 mb-4">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-2">How is PDFKits better than iLovePDF?</h3>
+                    <p class="text-gray-600">PDFKits offers more tools (30+ vs 20), faster processing, higher file size limits, and no mandatory registration. We're completely free with no watermarks on processed files.</p>
+                </div>
+                
+                <div class="bg-gray-50 rounded-lg p-6 mb-4">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-2">Do I need to create an account?</h3>
+                    <p class="text-gray-600">No account is required to use our tools. You can start processing your PDF files immediately without any registration.</p>
+                </div>
+                
+                <div class="bg-gray-50 rounded-lg p-6">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-2">Are my files secure?</h3>
+                    <p class="text-gray-600">Absolutely. We use bank-level encryption and automatically delete all files from our servers after processing. Your privacy is our top priority.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ad Placement 3 - Above Footer -->
+    <div class="container mx-auto px-4">
+        <div class="ad-container">
+            <span class="ad-label">Advertisement</span>
+            <div class="text-lg font-medium text-gray-700">PDFKits Pro - Advanced OCR Technology</div>
+            <div class="text-sm text-gray-600 mt-2">Convert scanned PDFs to editable text with our advanced OCR</div>
+            <a href="#" class="inline-block mt-3 px-4 py-2 bg-indigo-600 text-white text-sm rounded hover:bg-indigo-700">Try OCR Free</a>
+        </div>
+    </div>
+
+    <!-- CTA Section -->
+    <section class="py-16 bg-indigo-600 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">Ready to Get Started?</h2>
+            <p class="text-lg opacity-90 max-w-2xl mx-auto mb-8">Join millions of users who trust PDFKits for their PDF needs. No registration required.</p>
+            <a href="#tools" class="px-8 py-3 bg-white text-indigo-600 font-bold rounded-lg hover:bg-gray-100 transition-colors inline-block">
+                Start Processing Files Now
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12" id="contact">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 bg-indigo-600 rounded-lg flex items-center justify-center mr-3">
+                            <i class="fas fa-file-pdf text-white text-xl"></i>
+                        </div>
+                        <span class="text-2xl font-bold">PDF<span class="text-indigo-400">Kits</span></span>
+                    </div>
+                    <p class="text-gray-400">The ultimate free PDF solution with 30+ tools. Better than iLovePDF.</p>
+                    <div class="flex space-x-4 mt-4">
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">PDF Tools</h3>
+                    <ul class="space-y-2">
+                        <li><a href="merge-pdf.html" class="text-gray-400 hover:text-white transition-colors">Merge PDF</a></li>
+                        <li><a href="split-pdf.html" class="text-gray-400 hover:text-white transition-colors">Split PDF</a></li>
+                        <li><a href="compress-pdf.html" class="text-gray-400 hover:text-white transition-colors">Compress PDF</a></li>
+                        <li><a href="pdf-to-word.html" class="text-gray-400 hover:text-white transition-colors">PDF to Word</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Company</h3>
+                    <ul class="space-y-2">
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition-colors">About PDFKits</a></li>
+                        <li><a href="blog.html" class="text-gray-400 hover:text-white transition-colors">Blog</a></li>
+                        <li><a href="careers.html" class="text-gray-400 hover:text-white transition-colors">Careers</a></li>
+                        <li><a href="affiliate.html" class="text-gray-400 hover:text-white transition-colors">Affiliate Program</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Support</h3>
+                    <ul class="space-y-2">
+                        <li><a href="help.html" class="text-gray-400 hover:text-white transition-colors">Help Center</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white transition-colors">Contact Us</a></li>
+                        <li><a href="privacy.html" class="text-gray-400 hover:text-white transition-colors">Privacy Policy</a></li>
+                        <li><a href="terms.html" class="text-gray-400 hover:text-white transition-colors">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2023 PDFKits. All rights reserved. | Completely Free PDF Tools | Better Alternative to iLovePDF</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('open');
+        });
+        
+        // Tool card animations on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe tool cards for animation
+        document.querySelectorAll('.tool-card').forEach(card => {
+            card.style.opacity = 0;
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(card);
+        });
+        
+        // Observe feature cards for animation
+        document.querySelectorAll('.feature-card').forEach(card => {
+            card.style.opacity = 0;
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
